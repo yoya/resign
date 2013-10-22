@@ -46,7 +46,7 @@ if ($_REQUEST['ext'] === '.pdf') {
     }
     $pdf->SetFont('SJIS','',20);
     $x -= 20;
-    $pdf->TategakiText($x, 260, '私儀', 9);
+    $pdf->TategakiText($x, 240, '私儀', 9);
     $message1 = $resign_date."をもって退職致したく、";
     $message2 = "ここにお願い申し上げます。";
     $x -= 20;

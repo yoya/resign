@@ -110,7 +110,7 @@ $commit_date = date("Y-m-d", $t);
 
 $form = array(
     array('種類', 'radio', 'type', 'notification', 'notification', '退職届', 'wish', '退職願'),
-    array('理由', 'textarea', 'reason', '一身上の都合により、'),
+    array('理由', 'textarea', 'reason', 'このたび一身上の都合により、'),
     array('退職日', 'date', 'resign_date', $resign_date),
     array('提出日', 'date', 'commit_date', $commit_date),
     array('所属部署', 'textarea', 'mypart', '庶務二課'),

@@ -22,6 +22,7 @@ if ($_REQUEST['ext'] === '.pdf') {
         return '平成'.$dates[0].'年'.$dates[1].'月'.$dates[2].'日';
     }
 
+    $type = $_REQUEST['type'];
     $reason = $_REQUEST['reason'];
     $resign_date = date2japanize($_REQUEST['resign_date']);
     $commit_date = date2japanize($_REQUEST['commit_date']);
@@ -38,7 +39,11 @@ if ($_REQUEST['ext'] === '.pdf') {
     $pdf->AddPage();
     $pdf->SetFont('SJIS','',52);
     $x = 170;
-    $pdf->TategakiText($x, 110, '退職届', 40);
+    if ($type === 'wish')  {
+        $pdf->TategakiText($x, 110, '退職願', 40);
+    } else {
+        $pdf->TategakiText($x, 110, '退職届', 40);
+    }
     $pdf->SetFont('SJIS','',20);
     $x -= 20;
     $pdf->TategakiText($x, 260, '私儀', 9);
@@ -104,6 +109,7 @@ $resign_date = date("Y-m-d", $t + 14 * 24 * 3600);
 $commit_date = date("Y-m-d", $t);
 
 $form = array(
+    array('種類', 'radio', 'type', 'notification', 'notification', '退職届', 'wish', '退職願'),
     array('理由', 'textarea', 'reason', '一身上の都合により、'),
     array('退職日', 'date', 'resign_date', $resign_date),
     array('提出日', 'date', 'commit_date', $commit_date),
@@ -128,6 +134,20 @@ foreach ($form as $form_elem) {
     if ($type === 'textarea') {
 echo "<tr><th>$title</th> <td>
 <textarea name=\"$label\" rows=\"4\" cols=\"30\">$value</textarea></td></tr>\n";
+    } elseif ($type === 'radio') {
+        $chcked_value = $form_elem[3];
+        $type_list = array_slice($form_elem, 4);
+        echo "<tr><th>$title</th> <td>";
+        for ($i = 0 ; $i < count($type_list) ; $i+= 2) {
+            $value = $type_list[$i];
+            $name = $type_list[$i+1];
+            if ($value === $chcked_value) {
+                echo "<input type=\"radio\" name=\"$label\" value=\"$value\" checked>$name\n";
+            } else {
+                echo "<input type=\"radio\" name=\"$label\" value=\"$value\">$name\n";
+            }
+        }
+        echo " </td></tr>\n";
     } else {
         echo "<tr><th>$title</th>
 <td><input type=\"$type\" name=\"$label\"  value=\"$value\" /></td></tr>\n";

@@ -173,7 +173,7 @@ foreach ($form as $idx => $form_elem) {
 }
 $params[] = 'ext=.pdf';
 $param_str = join('&', $params);
-echo "<iframe src=\"resign.php?$param_str\" name=\"pdf\" width=\"100%\" height=\"100%\"></iframe>\n";
+echo "<iframe src=\"?$param_str\" name=\"pdf\" width=\"100%\" height=\"100%\"></iframe>\n";
 
 echo <<< FOOT
 </td></tr>

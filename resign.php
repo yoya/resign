@@ -92,16 +92,46 @@ echo <<< HEAD
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 退職届け PDF Maker </title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body bgcolor="#e0fff0">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">退職届け PDF Maker</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
 <h1 align="center"> 退職届け PDF Maker </h1>
 
 <table = width="100%" height="100%">
 <tr><td align="center">
 <form>
 <hr>
-<input type="submit" name="do" value="make"/> <div align="right"> <input type="submit" name="do" value="reset" /> </div>
+<p>
+<input type="submit" name="do" value="make" class="btn btn-primary" />&nbsp;&nbsp;<input type="submit" name="do" value="reset" class="btn btn-warning" />
+</p>
 <table border="1">
 HEAD;
 $t = time();
@@ -156,7 +186,11 @@ echo "<tr><th>$title</th> <td>
 
 echo <<< MIDDLE
 </table>
-<input type="submit" name="do" value="make"/>
+<br/>
+
+<p>
+<input type="submit" name="do" value="make" class="btn btn-primary" />&nbsp;&nbsp;<input type="submit" name="do" value="reset" class="btn btn-warning" />
+</p>
 <hr>
 ※ 名前の欄は空欄にしては直筆でのサインを推奨します。</br>
 ※ 名前の下に印鑑を忘れないでね☆

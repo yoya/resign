@@ -91,7 +91,7 @@ echo <<< HEAD
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> 退職届け PDF Maker </title>
+<title> 退職届け PDF メーカー </title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
@@ -110,7 +110,7 @@ echo <<< HEAD
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">退職届け PDF Maker</a>
+          <a class="navbar-brand" href="#">退職届け PDF メーカー</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -123,9 +123,9 @@ echo <<< HEAD
       </div>
     </div>
 
-<h1 align="center"> 退職届け PDF Maker </h1>
+<h1 align="center" id="home"> 退職届け PDF メーカー </h1>
 
-<table = width="100%" height="100%">
+<table width="100%" height="100%">
 <tr><td align="center">
 <form>
 <hr>
@@ -192,9 +192,9 @@ echo <<< MIDDLE
 <input type="submit" name="do" value="make" class="btn btn-primary" />&nbsp;&nbsp;<input type="submit" name="do" value="reset" class="btn btn-warning" />
 </p>
 <hr>
-※ 名前の欄は空欄にしては直筆でのサインを推奨します。</br>
-※ 名前の下に印鑑を忘れないでね☆
-※ 申し送りは省略可能です。☆
+※ 名前は空欄にして直筆でのサインを推奨します。</br>
+※ 名前の下に印鑑を忘れないでね☆</br>
+※ 申し送りは省略可能です。</br>
 <hr>
 </td>
 <td width="540px" height="800px">
@@ -213,7 +213,23 @@ echo <<< FOOT
 </td></tr>
 </table>
 
-<address> yoya@awm.jp </address>
+<h1 id="about"> About </h1>
+<ul>
+<li> 貴方の退職をサポート致します。ボタン１つで素早く退職届けを生成！
+<li> URL から会社と社長名以外を外せば、特定企業向けテンプレートも作れます。
+<li> 画像を投稿して得られる ID を指定する事で壁紙を貼る事が出来ます。思いの丈を埋めて下さい。
+<li> QRコードを埋められます。印刷した紙から URL に戻り、プリンタで印刷して紙へと、エコサイクルが出来上がるでしょう。
+<li> 尚、PDF もどき(フォントを埋め込まない)を出力するので、Macintosh での利用を推奨します。
+</ul>
+<ul>
+<li> http://good-bye.biz/ を参考にさせて頂きました。よりカジュアルな操作を目指しています。
+<li> 僕が無職になって収入がなくなったらアフィリエイトを貼るかもしれません。その時はご容赦を。
+</ul>
+
+<hr>
+<h1 id="contact"> Contact </h1>
+<address> <a href="mailto:yoya@awm.jp"> yoya@awm.jp </a> </address>
+改善要望承ります！
 </body> </html>
 
 FOOT;

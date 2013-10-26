@@ -46,7 +46,7 @@ if ($_REQUEST['ext'] === '.pdf') {
     }
     $pdf->SetFont('SJIS','',20);
     $x -= 20;
-    $pdf->TategakiText($x, 260, '私儀', 9);
+    $pdf->TategakiText($x, 240, '私儀', 9);
     $message1 = $resign_date."をもって退職致したく、";
     $message2 = "ここにお願い申し上げます。";
     $x -= 20;
@@ -140,7 +140,7 @@ $commit_date = date("Y-m-d", $t);
 
 $form = array(
     array('種類', 'radio', 'type', 'notification', 'notification', '退職届', 'wish', '退職願'),
-    array('理由', 'textarea', 'reason', '一身上の都合により、'),
+    array('理由', 'textarea', 'reason', 'このたび一身上の都合により、'),
     array('退職日', 'date', 'resign_date', $resign_date),
     array('提出日', 'date', 'commit_date', $commit_date),
     array('所属部署', 'textarea', 'mypart', '庶務二課'),
@@ -207,7 +207,7 @@ foreach ($form as $idx => $form_elem) {
 }
 $params[] = 'ext=.pdf';
 $param_str = join('&', $params);
-echo "<iframe src=\"resign.php?$param_str\" name=\"pdf\" width=\"100%\" height=\"100%\"></iframe>\n";
+echo "<iframe src=\"?$param_str\" name=\"pdf\" width=\"100%\" height=\"100%\"></iframe>\n";
 
 echo <<< FOOT
 </td></tr>

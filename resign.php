@@ -1,6 +1,6 @@
 <?php
 
-if ($_REQUEST['ext'] === '.pdf') {
+if (isset($_REQUEST['ext']) && ($_REQUEST['ext'] === '.pdf')) {
     function date2japanize($date) {
         $from = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
         $to = array('〇', '一', '二', '三', '四', '五', '六', '七', '八', '九');
@@ -150,7 +150,7 @@ $form = array(
     array('申し送り', 'textarea', 'note', ''),
 );
 
-if ($_REQUEST['do'] === 'make') {
+if (isset($_REQUEST['do']) && ($_REQUEST['do'] === 'make')) {
     foreach ($form as $idx => $form_elem) {
         list($title, $type, $label, $value) = $form_elem;
         if (array_key_exists($label, $_REQUEST)) {

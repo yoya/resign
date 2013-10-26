@@ -100,7 +100,7 @@ echo <<< HEAD
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color:#e0fff0; ">
+<body style="background-color:#f0ffe0; ">
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">

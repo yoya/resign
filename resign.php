@@ -138,6 +138,10 @@ echo <<< MIDDLE1
 <input type="submit" name="do" value="make" class="btn btn-primary" />&nbsp;&nbsp;<input type="submit" name="do" value="reset" class="btn btn-warning" />
 </p>
 </form>
+※ 名前は空欄にして直筆でのサインを推奨します。</br>
+※ 名前の下に印鑑を忘れないでね☆</br>
+※ 申し送りは省略可能です。</br>
+
 <hr>
 MIDDLE1;
 echo "<form enctype=\"multipart/form-data\" action=\"?".$query_string."\" method=\"POST\">\n";
@@ -146,11 +150,10 @@ echo <<< MIDDLE2
  壁紙用の画像ファイルをアップロード: <input name="image_file" type="file" class="btn btn-success" />
 <input type="submit" value="画像ファイル送信" class="btn btn-primary" />
 </form>
+※ 送信すると画像ID の欄に ID文字列が埋まります。<br />
+次回からその ID を指定して下さい。
 <hr>
-※ 名前は空欄にして直筆でのサインを推奨します。</br>
-※ 名前の下に印鑑を忘れないでね☆</br>
-※ 申し送りは省略可能です。</br>
-<hr>
+
 </td>
 <td width="540px" height="800px">
 MIDDLE2;
@@ -183,7 +186,7 @@ echo <<< FOOT
 
 <ul>
 <li> http://good-bye.biz/ を参考にさせて頂きました。よりカジュアルな操作を目指しています。
-<li> 僕が無職になって収入がなくなったらアフィリエイトを貼るかもしれません。その時はご容赦を。
+<li> 僕が無職になって収入がなくなったらアフィリエイトを貼るかもしれません。その時はご容赦を。m(_ _)m
 </ul>
 
 <hr>

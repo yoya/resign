@@ -1,6 +1,10 @@
 <?php
 
+
 function get_formData() {
+    $t = time();
+    $resign_date = date("Y-m-d", $t + 14 * 24 * 3600);
+    $commit_date = date("Y-m-d", $t);
     $form = array(
         array('種類', 'radio', 'type', 'notification', 'notification', '退職届', 'wish', '退職願'),
         array('理由', 'textarea', 'reason', 'このたび一身上の都合により、'),

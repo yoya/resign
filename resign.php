@@ -186,9 +186,7 @@ echo <<< HEAD
 </p>
 <table border="1">
 HEAD;
-$t = time();
-$resign_date = date("Y-m-d", $t + 14 * 24 * 3600);
-$commit_date = date("Y-m-d", $t);
+
 $form = get_formData();
 
 if (isset($_REQUEST['do']) && ($_REQUEST['do'] === 'make')) {

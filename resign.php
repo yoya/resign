@@ -1,52 +1,17 @@
 <?php
 
+require_once('form.php');
+require_once('image.php');
+
 $query_string = $_SERVER['QUERY_STRING'];
 //var_dump($query_string);
 
-function image_data2id($data, $ext) { // 16 chars digest
-    $sha1 = sha1($data, true);
-    $base64 = base64_encode(substr($sha1, 0, 12));
-    return strtr($base64, '+/', '-_').'.'.$ext;
-}
-function image_id2dir($id) {
-    return "img/".substr($id, 0, 2);
-}
-
-function image_id2path($id) {
-   return image_id2dir($id)."/".$id; 
-}
-function image_id2origpath($id) {
-   return image_id2dir($id)."/_".$id; 
-}
-
-function image_id_valid($id) {
-    if (preg_match('/^[A-Za-z0-9\-\_]{16}\.(png|gif|jpg)$/', $id, $dummy) === 1) {
-        return true;
-    }
-    return false;
-}
 
 function build_queryparam($params) {
    foreach ($params as $key => $value) {    
        $param_peers[] = urlencode($key)."=".urlencode($value);
    }
    return join('&', $param_peers);
-}
-function alphabrend($data, $ext, $outfile) { // to white
-    $im = ImageCreateFromString($data);
-    imagefilter ($im, IMG_FILTER_BRIGHTNESS, 140);
-    switch ($ext) {
-        case 'jpg':
-            imagejpeg($im, $outfile);
-            break;
-        case 'png':
-            imagepng($im, $outfile);
-            break;
-        case 'gif':
-            imagegif($im, $outfile);
-            break;
-    }
-    ImageDestroy($im);
 }
 
 if (isset($_FILES['image_file']) && ($_FILES['image_file'] !== '')) {
@@ -224,19 +189,7 @@ HEAD;
 $t = time();
 $resign_date = date("Y-m-d", $t + 14 * 24 * 3600);
 $commit_date = date("Y-m-d", $t);
-
-$form = array(
-    array('種類', 'radio', 'type', 'notification', 'notification', '退職届', 'wish', '退職願'),
-    array('理由', 'textarea', 'reason', 'このたび一身上の都合により、'),
-    array('退職日', 'date', 'resign_date', $resign_date),
-    array('提出日', 'date', 'commit_date', $commit_date),
-    array('所属部署', 'textarea', 'mypart', '庶務二課'),
-    array('自分の名前', 'text', 'myname', ''),
-    array('会社名', 'text', 'campany', 'ダミー株式会社'),
-    array('社長', 'text', 'president', '代表取締役 山田太郎様'),
-    array('画像ID', 'text', 'image_id', ''),
-    array('申し送り', 'textarea', 'note', ''),
-);
+$form = get_formData();
 
 if (isset($_REQUEST['do']) && ($_REQUEST['do'] === 'make')) {
     foreach ($form as $idx => $form_elem) {

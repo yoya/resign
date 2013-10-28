@@ -1,5 +1,6 @@
 <?php
 
+require('image.php');
 require('yoyapdf.php');
 
 function date2japanize($date) {

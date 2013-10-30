@@ -96,17 +96,18 @@ HEAD;
 
 $form = get_formData();
 
-if (isset($_REQUEST['do']) && ($_REQUEST['do'] === 'make')) {
+//if (isset($_REQUEST['do']) && ($_REQUEST['do'] === 'make')) {
     foreach ($form as $idx => $form_elem) {
         list($title, $type, $label, $value) = $form_elem;
         if (array_key_exists($label, $_REQUEST)) {
             $form[$idx][3] = $_REQUEST[$label];
         }
     }
-}
+//}
 
 foreach ($form as $form_elem) {
     list($title, $type, $label, $value) = $form_elem;
+    $value = htmlspecialchars($value); // escape
     if ($type === 'textarea') {
 echo "<tr><th>$title</th> <td>
 <textarea name=\"$label\" rows=\"4\" cols=\"30\" style=\"width:100%\">$value</textarea></td></tr>\n";

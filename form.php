@@ -15,6 +15,7 @@ function get_formData() {
         array('会社名', 'text', 'campany', 'ダミー株式会社'),
         array('社長', 'text', 'president', '代表取締役 山田太郎様'),
         array('画像ID', 'text', 'image_id', ''),
+        array('QRコード', 'radio', 'qrcode', 'no', 'yes', 'あり', 'no', 'なし'),
         array('申し送り', 'textarea', 'note', ''),
 	);
     return $form;

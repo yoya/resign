@@ -34,16 +34,27 @@ $campany = $_REQUEST['campany'];
 $president = $_REQUEST['president'];
 $note = $_REQUEST['note'];
 $image_id = $_REQUEST['image_id'];
+$qrcode = $_REQUEST['qrcode'];
 
 $pdf=new YoyaPDF();
 $pdf->AddSJISFont();
 $pdf->AddPage();
 
 if (($image_id !== '') && image_id_valid($image_id)) {
+
    $path = image_id2path($image_id);
    if (file_exists($path)) {
        $pdf->Image($path, 30, 50, 140);
    }
+}
+if ($qrcode === 'yes') {
+   require('phpqrcode.php');
+   $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+   $tmpfile = tempnam('tmp', 'qr');
+
+   QRcode::png($url, $tmpfile, 'L', 4, 2);
+   $pdf->Image($tmpfile, 25, 220, 40, 40, 'png');
+   unlink($tmpfile);
 }
 
 $pdf->SetFont('SJIS','',52);

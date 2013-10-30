@@ -4,8 +4,8 @@ require_once('form.php');
 require_once('image.php');
 
 $query_string = $_SERVER['QUERY_STRING'];
-//var_dump($query_string);
-
+// var_dump($query_string);
+// var_dump($_REQUEST);
 
 function build_queryparam($params) {
    foreach ($params as $key => $value) {    
@@ -103,7 +103,7 @@ $form = get_formData();
             $form[$idx][3] = $_REQUEST[$label];
         }
     }
-//}
+//} var_dump($form);
 
 foreach ($form as $form_elem) {
     list($title, $type, $label, $value) = $form_elem;

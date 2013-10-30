@@ -1,5 +1,7 @@
 <?php
 
+define('RESIGN_IMAGE_DIR', "img");
+
 function image_data2id($data, $ext) { // 16 chars digest
     $sha1 = sha1($data, true);
     $base64 = base64_encode(substr($sha1, 0, 12));
@@ -7,7 +9,7 @@ function image_data2id($data, $ext) { // 16 chars digest
 }
 
 function image_id2dir($id) {
-    return "img/".substr($id, 0, 2);
+    return RESIGN_IMAGE_DIR.'/'.substr($id, 0, 2);
 }
 
 function image_id2path($id) {

@@ -33,7 +33,7 @@ if (isset($_FILES['image_file']) && ($_FILES['image_file'] !== '')) {
    $origpath = image_id2origpath($image_id);
    $path = image_id2path($image_id);
    if (file_exists($path) === false) {
-       file_put_contents($orig_path, $image_data);
+       file_put_contents($origpath, $image_data);
         alphabrend($image_data, $ext, $path);
    }
    //

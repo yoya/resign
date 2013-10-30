@@ -26,21 +26,14 @@ function image_id_valid($id) {
     return false;
 }
 
-function  filterValue(&$value, $total, $maxvalue) {
-    $value = (255 * 6 + $value) / 7;
-}
-
 function  filterPixel(&$red, &$green, &$blue, $maxvalue) {
-    $total = $red + $green + $blue;
-    filterValue($red,   $total, $maxvalue);
-    filterValue($green, $total, $maxvalue);
-    filterValue($blue,  $total, $maxvalue);
+    $red   = (255 * 6 + $red)   / 7;
+    $green = (255 * 6 + $green) / 7;
+    $blue  = (255 * 6 + $blue)  / 7;
 }
-
 
 function alphabrend($data, $ext, $outfile) { // to white
     $im = ImageCreateFromString($data);
-
 
     $sx = imagesx($im);  $sy = imagesy($im);
     if (imageistruecolor($im)) { // true color

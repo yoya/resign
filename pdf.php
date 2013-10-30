@@ -42,7 +42,7 @@ $pdf->AddPage();
 if (($image_id !== '') && image_id_valid($image_id)) {
    $path = image_id2path($image_id);
    if (file_exists($path)) {
-       $pdf->RotatedImage($path, 30, 50, 140, 200,0);
+       $pdf->Image($path, 30, 50, 140);
    }
 }
 

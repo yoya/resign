@@ -27,29 +27,36 @@ class YoyaPDF extends PDF_Rotate
     {
         foreach (preg_split('/(?<!^)(?!$)/u', $txt) as $c) {
             $fontSize = $this->fontSize / 7.2;
-            switch ($c) {
-            case 'ー':
-            case '－':
-            case '―':
-            case '‐':
-            case '～':
-                $this->Rotate(90, $x+$fontSize*1.1, $y-$fontSize*1.1);
-                $this->Text($x, $y, $c);
+
+            if ((ord(substr($c, 0, 1)) & 0x80) === 0) { // UTF-8
+                $this->Rotate(-90, $x+$fontSize*1.1, $y-$fontSize*1.1);
+                $this->Text($x , $y - $fontSize * 0.5, $c);
                 $this->Rotate(0);
-                break;
-            case '、':
-            case '。':
-            case '，':
-            case '．':
-                $this->Text($x + $fontSize*1.5, $y - $fontSize*2, $c);
-                break;
-            default:
-                $this->Text($x, $y, $c);
-                break;
+                $y += $this->GetStringWidth($c) + $fontSize*0.2;
+            } else {
+                switch ($c) {
+                  case 'ー':
+                  case '－':
+                  case '―':
+                  case '‐':
+                  case '～':
+                    $this->Rotate(90, $x+$fontSize*1.1, $y-$fontSize*1.1);
+                    $this->Text($x, $y, $c);
+                    $this->Rotate(0);
+                    break;
+                  case '、':
+                  case '。':
+                  case '，':
+                  case '．':
+                    $this->Text($x + $fontSize*1.5, $y - $fontSize*2, $c);
+                     break;
+                  default:
+                    $this->Text($x, $y, $c);
+                    break;
+                }
+                $y += $m;
+                continue;
             }
-            $y += $m;
-            continue;
         }
-        //Text rotated around its origin
     }
 }

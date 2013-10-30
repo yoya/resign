@@ -24,9 +24,70 @@ function image_id_valid($id) {
     return false;
 }
 
+function  filterValue(&$value, $total, $maxvalue) {
+    $value = (255 * 6 + $value) / 7;
+}
+
+function  filterPixel(&$red, &$green, &$blue, $maxvalue) {
+    $total = $red + $green + $blue;
+    filterValue($red,   $total, $maxvalue);
+    filterValue($green, $total, $maxvalue);
+    filterValue($blue,  $total, $maxvalue);
+}
+
+
 function alphabrend($data, $ext, $outfile) { // to white
     $im = ImageCreateFromString($data);
-    imagefilter ($im, IMG_FILTER_BRIGHTNESS, 140);
+
+
+    $sx = imagesx($im);  $sy = imagesy($im);
+    if (imageistruecolor($im)) { // true color
+        $maxvalue = 0;
+        for ($y = 0 ; $y < $sy; $y++) {
+            for ($x = 0 ; $x < $sx; $x++) {
+                $c = imagecolorat($im, $x, $y);
+                $red   = ($c >> 16) & 0xff;
+                $green = ($c >>  8) & 0xff;
+                $blue  =  $c        & 0xff;
+                $maxvalue = MAX($maxvalue, $red, $green, $blue);
+            }
+        }
+        for ($y = 0 ; $y < $sy; $y++) {
+            for ($x = 0 ; $x < $sx; $x++) {
+                $c = imagecolorat($im, $x, $y);
+                $alpha =  $c >> 24;
+                $red   = ($c >> 16) & 0xff;
+                $green = ($c >>  8) & 0xff;
+                $blue  =  $c        & 0xff;
+                filterPixel($red, $green, $blue, $maxvalue);
+                $c2 = ($alpha << 24) + ($red << 16) + ($green << 8) + ($blue << 0);
+                imagesetpixel($im, $x, $y, $c2);
+            }
+        }
+    } else { // palette color
+        $ct = imagecolorstotal($im);
+        $maxvalue = 0;
+        for ($i = 0 ; $i < $ct; $i++) {
+            $c = imagecolorsforindex($im, $i);
+            $red   = $c['red'];
+            $green = $c['green'];
+            $blue  = $c['blue'];
+            $maxvalue = MAX($maxvalue, $red, $green, $blue);
+        }
+        for ($i = 0 ; $i < $ct; $i++) {
+            $c = imagecolorsforindex($im, $i);
+            $alpha = $c['alpha'];
+            $red   = $c['red'];
+            $green = $c['green'];
+            $blue  = $c['blue'];
+            filterPixel($red, $green, $blue, $maxvalue);
+            if (($alpha < 0) || (PHP_VERSION_ID < 50400)) {
+                imagecolorset($im, $i, $red, $green, $blue);
+            } else {
+                imagecolorset($im, $i, $red, $green, $blue, $alpha); // >= 5.4.0
+            }
+        }
+    }
     switch ($ext) {
         case 'jpg':
             imagejpeg($im, $outfile);

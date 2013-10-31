@@ -84,6 +84,20 @@ echo <<< HEAD
 
 <h1 align="center" id="home"> 退職届け PDF メーカー </h1>
 
+<p>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" data-href="http://app.awm.jp/resign/" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div> 
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://app.awm.jp/resign/" data-via="yoya" data-lang="ja" data-hashtags="退職届">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
+
 <table width="100%" height="100%">
 <tr><td align="center">
 <form>

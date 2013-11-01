@@ -75,8 +75,13 @@ if ($type === 'wish')  {
 $pdf->SetFont('SJIS','',20);
 $x -= 20;
 $pdf->TategakiText($x, 240, '私儀', 9);
-$message1 = $resign_date."をもって退職致したく、";
-$message2 = "ここにお願い申し上げます。";
+if ($type === 'wish')  {
+    $message1 = $resign_date."をもって退職致したく、";
+    $message2 = "ここにお願い申し上げます。";
+} else {
+    $message1 = $resign_date."をもって";
+    $message2 = "退職させて頂きます。";
+}
 $x -= 20;
 $pdf->TategakiText($x, 30, $reason, 9);
 $x -= 10;

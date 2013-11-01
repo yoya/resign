@@ -3,7 +3,7 @@
 require('image.php');
 require('yoyapdf.php');
 
-function date2japanize($date) {
+function date2japanize($date) { // range: 0 - 99
     $from = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
     $to = array('〇', '一', '二', '三', '四', '五', '六', '七', '八', '九');
     $dates = split('-', $date);
@@ -16,6 +16,8 @@ function date2japanize($date) {
             $d = '十';
         } elseif ($d < 20) {
             $d = '十'.mb_substr($d, 1);
+        } elseif (($d % 10) === 0) {
+            $d = mb_substr($d, 0, 1).'十';
         } else {
             $d = mb_substr($d, 0, 1).'十'.mb_substr($d, 1);
         }

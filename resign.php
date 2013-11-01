@@ -192,7 +192,7 @@ echo <<< FOOT
 <li> URL に会社と社長だけ残せば、特定企業向けテンプレートになります。
 <li> 画像を投稿して得られる ID を指定する事で壁紙が貼れます。思いの丈を埋めて下さい。
 <li> QRコードを埋められます。印刷した紙から URL に戻り、プリンタで印刷して紙へと、(反?)エコサイクル！
-<li> 参考) <a href="http://pwiki.awm.jp/~yoya/?resign"> http://pwiki.awm.jp/~yoya/?resign </a>
+<li> 参考) <a href="http://pwiki.awm.jp/~yoya/?resign" target="_blink"> http://pwiki.awm.jp/~yoya/?resign </a>
 </ul>
 
 <ul>

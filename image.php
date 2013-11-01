@@ -1,5 +1,10 @@
 <?php
 
+/*
+	image.php
+	2013/10/27- (c) yoya@awm.jp
+*/
+
 define('RESIGN_IMAGE_DIR', "img");
 
 function image_data2id($data, $ext) { // 16 chars digest

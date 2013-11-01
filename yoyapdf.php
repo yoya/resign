@@ -1,4 +1,10 @@
 <?php
+
+/*
+	yoypdf.php
+	2013/10/22- (c) yoya@awm.jp
+*/
+
 require('rotation_japanese.php');
 
 class YoyaPDF extends PDF_Rotate

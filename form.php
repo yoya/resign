@@ -1,5 +1,9 @@
 <?php
 
+/*
+	form.php
+	2013/10/27- (c) yoya@awm.jp
+*/
 
 function get_formData() {
     $t = time();

@@ -1,5 +1,10 @@
 <?php
 
+/*
+	resign.php
+	2013/10/22- (c) yoya@awm.jp
+*/
+
 require_once('form.php');
 require_once('image.php');
 

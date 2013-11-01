@@ -1,5 +1,10 @@
 <?php
 
+/*
+	pdf.php
+	2013/10/27- (c) yoya@awm.jp
+*/
+
 require('image.php');
 require('yoyapdf.php');
 

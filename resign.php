@@ -50,6 +50,7 @@ if (isset($_FILES['image_file']) && ($_FILES['image_file'] !== '')) {
    exit(0);
 }
 
+header('Content-Type: text/html; charset=UTF-8');
 echo <<< HEAD
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -218,3 +219,4 @@ echo <<< FOOT
 </body> </html>
 
 FOOT;
+

@@ -57,11 +57,11 @@ echo <<< HEAD
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 退職届け PDF メーカー </title>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link href="./css/jumbotron.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-color:#f0ffe0; ">

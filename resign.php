@@ -74,12 +74,14 @@ echo <<< HEAD
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="?">退職届け PDF メーカー</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="#">Home</a></li>
+            <li><a href="#notice">Notice</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             </li>
@@ -193,13 +195,21 @@ echo <<< FOOT
 </td></tr>
 </table>
 
+<h1 id="notice"> Notice </h1>
+<ul>
+<li> 「退職届」は退職の意志を一方的に会社へ通知するものです。穏便に進めたい場合は「退職願い」を選択して下さい。
+<li> 退職願/退職届のコピーを取っておいて離職票や源泉徴収票が送られてくるまできちんと保管しておきましょう。
+<li> 偽造の疑いを減らす為に、名前の欄は直筆が良いでしょう。
+</ul>
+
+<hr>
+
 <h1 id="about"> About </h1>
 <ul>
 <li> 貴方の退職をサポートします。ボタン１つで素早く退職届けを生成！
 <li> URL に会社と社長だけ残せば、特定企業向けテンプレートになります。
 <li> 画像を投稿して得られる ID を指定する事で壁紙が貼れます。思いの丈を埋めて下さい。
 <li> QRコードを埋められます。印刷した紙から URL に戻り、プリンタで印刷して紙へと、(反?)エコサイクル！
-<li> 参考) <a href="http://pwiki.awm.jp/~yoya/?resign" target="_blink"> http://pwiki.awm.jp/~yoya/?resign </a>
 </ul>
 
 <ul>
@@ -208,11 +218,13 @@ echo <<< FOOT
 </ul>
 
 <ul>
+<li> 参考) <a href="http://pwiki.awm.jp/~yoya/?resign" target="_blink"> http://pwiki.awm.jp/~yoya/?resign </a>
 <li> http://good-bye.biz/ を参考にさせて頂きました。よりカジュアルな操作を目指します。
 <li> 僕が無職になって収入がなくなったらアフィリエイトを貼るかもしれません。その時はご容赦を。m(_ _)m
 </ul>
 
 <hr>
+
 <h1 id="contact"> Contact </h1>
 <address> <a href="mailto:yoya@awm.jp"> yoya@awm.jp </a> </address>
 改善要望承ります！

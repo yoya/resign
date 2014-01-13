@@ -95,7 +95,7 @@ $pdf->TategakiText($x, 135, $mypart, 8);
 
 $pdf->SetFont('SJIS','',24);
 $x -= 15;
-$y = 290 - mb_strlen($myname)*12;
+$y = 270 - mb_strlen($myname)*12;
 $pdf->TategakiText($x, $y, $myname, 12);
 
 $pdf->SetFont('SJIS','',18);

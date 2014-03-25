@@ -42,6 +42,10 @@ class YoyaPDF extends PDF_Rotate
             } else {
                 switch ($c) {
                   case 'ー':
+                    $this->Rotate(90, $x+$fontSize*1.1, $y-$fontSize*1.1, 1);
+                    $this->Text($x, $y, $c);
+                    $this->Rotate(0);
+                    break;
                   case '－':
                   case '―':
                   case '‐':

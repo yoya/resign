@@ -16,7 +16,7 @@ function date2japanize($date) { // range: 0 - 99
     foreach (range(0, 2) as $idx) {
         $d = $dates[$idx];
         if ($d < 10) {
-            $d = mb_substr($d, 1);
+            $d = mb_substr($d, -1);
         } elseif ($d == 10) {
             $d = '十';
         } elseif ($d < 20) {
@@ -28,7 +28,10 @@ function date2japanize($date) { // range: 0 - 99
         }
         $dates[$idx] = str_replace($from, $to, $d);
     }
-    return '平成'.$dates[0].'年'.$dates[1].'月'.$dates[2].'日';
+    if ($dates[0] == "一") {
+        $dates[0] = "元";
+    }
+    return $era.$dates[0].'年'.$dates[1].'月'.$dates[2].'日';
 }
 
 $type = $_REQUEST['type'];

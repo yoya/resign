@@ -77,16 +77,16 @@ if ($qrcode === 'yes') {
    unlink($tmpfile);
 }
 
-$pdf->SetFont('SJIS','',52);
+$pdf->SetFont('SJIS','',42);
 $x = 170;
 if ($type === 'wish')  {
-    $pdf->TategakiText($x, 110, '退職願', 40);
+    $pdf->TategakiText($x, 100, '退職願', 40);
 } else {
-    $pdf->TategakiText($x, 110, '退職届', 40);
+    $pdf->TategakiText($x, 100, '退職届', 40);
 }
-$pdf->SetFont('SJIS','',20);
+$pdf->SetFont('SJIS','',26);
 $x -= 20;
-$pdf->TategakiText($x, 240, '私儀', 9);
+$pdf->TategakiText($x, 250, '私儀', 14);
 if ($type === 'wish')  {
     $message1 = $resign_date."をもって退職致したく、";
     $message2 = "ここにお願い申し上げます。";
@@ -94,19 +94,20 @@ if ($type === 'wish')  {
     $message1 = $resign_date."をもって";
     $message2 = "退職させて頂きます。";
 }
+$pdf->SetFont('SJIS','',20);
 $x -= 20;
 $pdf->TategakiText($x, 30, $reason, 9);
-$x -= 10;
+$x -= 12;
 $pdf->TategakiText($x, 30, $message1, 9);
-$x -= 10;
+$x -= 12;
 $pdf->TategakiText($x, 30, $message2, 9);
-$x -= 15;
+$x -= 20;
 $pdf->TategakiText($x, 115, $commit_date, 8);
 $x -= 12;
 $pdf->TategakiText($x, 135, $mypart, 8);
 
 $pdf->SetFont('SJIS','',24);
-$x -= 15;
+$x -= 10;
 $y = 270 - mb_strlen($myname)*12;
 $pdf->TategakiText($x, $y, $myname, 12);
 

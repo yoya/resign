@@ -11,12 +11,21 @@ require('yoyapdf.php');
 function date2japanize($date) { // range: 0 - 99
     $from = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
     $to = array('〇', '一', '二', '三', '四', '五', '六', '七', '八', '九');
-    $dates = split('-', $date);
-    $dates[0] -= 1988;
+    $dates = explode('-', $date);
+    $year = $dates[0];
+    $month = $dates[1];
+    if (($year < "2019")  || (($year == "2019") && ($month < "5") )) {
+        $era = "平成";
+        $dates[0] -= 1988;
+    } else {
+        $era = "令和";
+        $dates[0] -= 2018;
+    }
+    $dates[0] .= "";
     foreach (range(0, 2) as $idx) {
         $d = $dates[$idx];
         if ($d < 10) {
-            $d = mb_substr($d, 1);
+            $d = mb_substr($d, -1);
         } elseif ($d == 10) {
             $d = '十';
         } elseif ($d < 20) {
@@ -28,7 +37,10 @@ function date2japanize($date) { // range: 0 - 99
         }
         $dates[$idx] = str_replace($from, $to, $d);
     }
-    return '平成'.$dates[0].'年'.$dates[1].'月'.$dates[2].'日';
+    if ($dates[0] == "一") {
+        $dates[0] = "元";
+    }
+    return $era.$dates[0].'年'.$dates[1].'月'.$dates[2].'日';
 }
 
 $type = $_REQUEST['type'];
